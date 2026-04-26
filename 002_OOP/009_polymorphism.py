@@ -51,6 +51,9 @@ if __name__ == "__main__":
 '''
 But to be honest, python runs on duck typing, its a dynamically typed language
 This will just be fine
+
+If it walks like a duck and quacks like a duck, it is a duck. That is python philosophy
+It only looks for existence for certain methods, doesn't care base class 
 '''
 print("\n\n\nStart of DUCK Type Example \n\n")
 

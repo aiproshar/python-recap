@@ -23,14 +23,57 @@ class NetworkStream(Stream):
 	def close(self):
 		print("Closing network stream")
 
-def process_stream(stream: Stream):
+'''
+This is the actual polymorphism
+Our process stream taking different types of stream, each object's open and close is different function
+Changing behaviour during runtime
+We cannot know which draw we will call, until runtime. That's why this is called runtime polymorphism
+'''
+def process_stream(stream_object: Stream):
 	print("Opening stream")
-	stream.open()
+	stream_object.open()
 	print("Processing stream")
 	print("Closing stream")
-	stream.close()
+	stream_object.close()
 
 if __name__ == "__main__":
 	stream_list: list[Stream] = [FileStream(), NetworkStream()]
 	for stream in stream_list:
 		process_stream(stream)
+
+
+
+
+
+
+
+
+'''
+But to be honest, python runs on duck typing, its a dynamically typed language
+This will just be fine
+'''
+print("\n\n\nStart of DUCK Type Example \n\n")
+
+class FileStream(Stream):
+	def open(self):
+		print("Opening file stream")
+	def close(self):
+		print("Closing file stream")
+
+
+class NetworkStream(Stream):
+	def open(self):
+		print("Opening network stream")
+	def close(self):
+		print("Closing network stream")
+
+
+
+
+if __name__ == "__main__":
+	stream_list = [FileStream(), NetworkStream()]
+	for stream_object in stream_list:
+		# Duck typing, as long as we have open close method, python happy
+		stream_object.open()
+		stream_object.close()
+

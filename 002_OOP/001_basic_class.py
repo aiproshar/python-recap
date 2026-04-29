@@ -7,7 +7,8 @@ class Point2D:  # Defining A class blueprint, naming convention: MyPoint (no und
     def print(self):
         print(f"co-ordinates: {self.x}, {self.y}")
 
-    def radius(self) -> float:  # Duck taping the return type
+    # Return type hint (static/structural — opposite of duck typing)
+    def radius(self) -> float:
         return math.sqrt(self.x**2 + self.y**2)
 
     def __init__(self, x, y):  # Magic Method constructor

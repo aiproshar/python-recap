@@ -5,13 +5,12 @@ class Point2D:  # Defining A class blueprint, naming convention: MyPoint (no und
     # Self is always the very first param in every method
 
     # Shared among all the instance
-    default_color = "RED"  # This is a class attributr
+    default_color = "RED"  # This is a class attribute
 
     def print(self):
         print(f"co-ordinates: {self.x}, {self.y}")
 
-    # Duck taping the return type
-    def radius(self) -> float:
+    def radius(self) -> float:  # type-hinted return
         return math.sqrt(self.x**2 + self.y**2)
 
     # Magic Method constructor

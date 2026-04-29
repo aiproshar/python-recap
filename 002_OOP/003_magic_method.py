@@ -82,7 +82,7 @@ new = c2 + c1
 print(new)
 
 
-'''
+"""
 There is also some stuff name magic attribute, same idea. Its part of the base object class
 Magic attributes can be for class, object, function. Also on modules (we will learn them later)
 On objects and classes:
@@ -105,10 +105,10 @@ __defaults__ — tuple of default argument values
 __code__ — the compiled bytecode object
 __closure__ — the enclosed variables (for closures)
 __annotations__ — type hints dictionary
-'''
+"""
 
 # Additional important magic methods force context management and cleanup
-'''
+"""
 class Resource:
     def __enter__(self):
         print("Setting up")
@@ -120,4 +120,4 @@ class Resource:
 
 with Resource() as r:
     print("Using resource")
-'''
+"""

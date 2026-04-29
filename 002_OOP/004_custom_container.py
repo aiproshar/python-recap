@@ -4,7 +4,8 @@ The Properties needed to be qualified as a container
  Iterable, for items in CustomContainerClass -> Needs to be satisfied
 """
 
-#TODO: Implement later, skipping now
+
+# TODO: Implement later, skipping now
 class CustomContainer:
     def __init__(self):
         self.tags = list()

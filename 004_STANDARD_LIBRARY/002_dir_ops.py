@@ -84,6 +84,7 @@ import shutil
 for path in temp_folder.iterdir():
     if path.is_dir():
         try:
+            # shutils -> shellutils
             shutil.rmtree(path)
         except Exception as e:
             print(f"Exception occurred: {e.__class__.__name__}:{e}")

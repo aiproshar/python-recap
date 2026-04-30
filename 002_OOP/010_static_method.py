@@ -51,11 +51,11 @@ print(f"Distance: {Point2D.distance(a, b)}")
 print(f"Distance: {a.distance(a, b)}")
 
 
-'''
+"""
 We mostly use static method as helper function, which does not affect any state
 It's a pure function — same input always gives same output, no side effects
 Class method can behave similar to static method if it doesn't read or modify class attributes
 You might wonder how just *reading* breaks purity. Imagine the class keeps a count of
 active instances. A `current_instance_count` classmethod doesn't modify any state, but
 its result changes over time as instances are created/destroyed — so it's not pure.
-'''
+"""

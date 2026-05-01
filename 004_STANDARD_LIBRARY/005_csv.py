@@ -98,5 +98,6 @@ with open(new_csv_path, "r", newline="") as csvfile:
     for rows in reader:
         print(rows)
     print(f"Removing file {new_csv_path.name}")
-    new_csv_path.unlink()
+# It's better to unlink the file outside the with block, as that block lifecycle is tied to opening and read anc close
+new_csv_path.unlink()
 

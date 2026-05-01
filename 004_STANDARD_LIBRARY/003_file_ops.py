@@ -1,11 +1,9 @@
 import shutil
 from pathlib import Path
 
-import shutils
-
 path = Path(__file__).resolve()
 file_path = path.parent / "test.txt"
-if path.exists():
+if file_path.exists():
     print(f"\nThe file {file_path.name} already exists")
 else:
     print(f"\nThe file {file_path.name} does not exist")

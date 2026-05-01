@@ -39,5 +39,6 @@ for file in unzip_dir.iterdir():
 
 zip_path.unlink()
 shutil.rmtree(unzip_dir)
+shutil.rmtree(temp_dir)
 
 # TODO: lets use shutils to zip easily, and we can also zip recursively easily, zipping a directory

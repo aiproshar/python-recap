@@ -2,20 +2,21 @@
 Reading a JSON file
 Its bit easier for dynamically typed language
 """
+
 import json
 from pathlib import Path
 from pprint import pprint
 
 json_path = Path(__file__).resolve().parent / "company.json"
 
-#unline CSV, we can directly use readfile
+# unline CSV, we can directly use readfile
 # Due to delimiter complexity, we cannot use this in csv
 data = json_path.read_text()
-'''
+"""
 json.load -> load from file like object
 json.loads -> load from a string object
 we need to do processing
-'''
+"""
 json_payload = json.loads(data)
 # use pprint (pretty print) instead of normal print, built in
 pprint(json_payload["companies"][0])
@@ -83,9 +84,8 @@ Big numbers: Python keeps them precise
 # Combined employee count of all the companies
 total_employee = 0
 for company in json_payload["companies"]:
-    employee =  company["employee_count"]
+    employee = company["employee_count"]
     try:
-
         # employee = int(employee)
         # Converting is redundant, as per previous comment
         # if this was CSV, yes we had to
@@ -105,7 +105,7 @@ for company in json_payload["companies"]:
 print("List of companies founder in or after 2000 and their revenues")
 print(names)
 
-'''
+"""
 
 for more nested example, it will be like company["teams"]["HR']["head_count"]
 example JSON
@@ -140,4 +140,4 @@ example JSON
     }
   }
 }
-'''
+"""

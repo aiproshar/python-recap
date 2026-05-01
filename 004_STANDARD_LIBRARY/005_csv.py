@@ -87,10 +87,10 @@ with open(new_csv_path, "w", newline="") as csvfile:
     writer.writerow(["Arafat", 22, 2.79, "CS"])
     writer.writerow(kabir.to_list())
     writer.writerow(rifat.to_list())
-    '''
+    """
     We can also write to lines in one (Or more)
     writer.writerows([kabir.to_list(), rifat.to_list()])
-    '''
+    """
 print("Lets print all the contents of new written csv")
 
 with open(new_csv_path, "r", newline="") as csvfile:
@@ -100,4 +100,3 @@ with open(new_csv_path, "r", newline="") as csvfile:
     print(f"Removing file {new_csv_path.name}")
 # It's better to unlink the file outside the with block, as that block lifecycle is tied to opening and read anc close
 new_csv_path.unlink()
-

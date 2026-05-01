@@ -1,0 +1,76 @@
+{
+  "companies": [
+    {
+      "id": 1,
+      "name": "Tech Innovations Inc.",
+      "industry": "Software",
+      "founded": 2010,
+      "is_public": false,
+      "city": "San Francisco",
+      "employee_count": 250,
+      "annual_revenue_millions": 12.5,
+      "tags": ["saas", "ai", "cloud"],
+      "ceo": "Jane Doe"
+    },
+    {
+      "id": 2,
+      "name": "GreenLeaf Foods",
+      "industry": "Food & Beverage",
+      "founded": 1998,
+      "is_public": true,
+      "city": "Austin",
+      "employee_count": 1200,
+      "annual_revenue_millions": 85.3,
+      "tags": ["organic", "retail"],
+      "ceo": "Mark Chen"
+    },
+    {
+      "id": 3,
+      "name": "BlueWave Logistics",
+      "industry": "Transportation",
+      "founded": 2005,
+      "is_public": true,
+      "city": "Seattle",
+      "employee_count": 540,
+      "annual_revenue_millions": 47.8,
+      "tags": ["shipping", "supply-chain"],
+      "ceo": "Sarah Patel"
+    },
+    {
+      "id": 4,
+      "name": "PixelForge Studios",
+      "industry": "Software",
+      "founded": 2018,
+      "is_public": false,
+      "city": "Berlin",
+      "employee_count": 60,
+      "annual_revenue_millions": 4.2,
+      "tags": ["gaming", "indie"],
+      "ceo": "Lukas Weber"
+    },
+    {
+      "id": 5,
+      "name": "Sunrise Pharmaceuticals",
+      "industry": "Healthcare",
+      "founded": 1985,
+      "is_public": true,
+      "city": "Boston",
+      "employee_count": 3400,
+      "annual_revenue_millions": 210.0,
+      "tags": ["pharma", "research"],
+      "ceo": null
+    },
+    {
+      "id": 6,
+      "name": "Nomad Coffee Co.",
+      "industry": "Food & Beverage",
+      "founded": 2015,
+      "is_public": false,
+      "city": "Portland",
+      "employee_count": 85,
+      "annual_revenue_millions": 6.7,
+      "tags": ["retail", "coffee"],
+      "ceo": "Emma Rivera"
+    }
+  ]
+}

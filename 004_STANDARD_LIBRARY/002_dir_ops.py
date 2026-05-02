@@ -1,5 +1,4 @@
 from pathlib import Path
-import os
 
 
 # Use resolve, its both uses absolute path and also collapses . and .. and ./ ect
@@ -53,7 +52,7 @@ print(f"paths: {paths}")
 # If we have million of files/dirs use generators
 paths = (i for i in temp_folder.iterdir() if i.is_dir())
 
-print(f"\n\n\nPrinting using generators \n\n\n")
+print("\n\n\nPrinting using generators \n\n\n")
 for path in paths:
     print(f"path: {path}")
 
@@ -81,10 +80,9 @@ for path in temp_folder.iterdir():
 # We need to run something like rm -rf {dir} here
 import shutil
 
-for path in temp_folder.iterdir():
+for path in temp_folder.iterdir():  # noqa: E402
     if path.is_dir():
         try:
-            # shutils -> shellutils
             shutil.rmtree(path)
         except Exception as e:
             print(f"Exception occurred: {e.__class__.__name__}:{e}")

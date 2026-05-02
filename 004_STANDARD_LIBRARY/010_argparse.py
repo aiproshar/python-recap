@@ -120,3 +120,22 @@ Second positional:          data.csv
 Capitalize bool:            True
 Output :                    result.txt
 """
+"""
+=============================================================================
+                         TYPES OF PARSED VALUES
+=============================================================================
+
+The type depends on how you defined the argument, NOT on how you print it.
+f-strings hide this by calling str() on everything.
+
+  Defined as                                  args.x type     Example value
+  ──────────────────────────────────────────  ──────────────  ─────────────
+  add_argument("name")                        str             "input.txt"
+  add_argument("count", type=int)             int             42
+  add_argument("--verbose", action="store_true")  bool        True
+  add_argument("-v", action="count", default=0)   int         3
+  add_argument("files", nargs="+")            list[str]       ["a.txt", "b.txt"]
+  add_argument("--nums", nargs="+", type=int) list[int]       [1, 2, 3]
+
+Rule: no type= → str. store_true → bool. count → int. nargs → list.
+"""

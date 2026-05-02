@@ -26,7 +26,7 @@ id  name            department   salary  hire_date   age
 """
 
 # Define the path always, very first step on any
-csv_path = Path(__file__).absolute().parent / "employees.csv"
+csv_path = Path(__file__).resolve().parent / "employees.csv"
 
 # newline="" is required when using the csv module (both read and write).
 # Why: CSV fields can contain embedded newlines inside quoted strings, and

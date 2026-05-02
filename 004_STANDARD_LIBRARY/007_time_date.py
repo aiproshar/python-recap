@@ -13,7 +13,7 @@ print(
 )  # This prints number of seconds since epoch, epoch: January 1, 1970, 00:00:00 UTC (also called "Unix epoch" or "POSIX time")
 
 """
-Lets generate 1 Million SHA-256 Hash and see how many seconds in take
+Lets generate 5 Million SHA-256 Hash and see how many seconds in take
 
 """
 text = "Lets generate 5 Million SHA-256 Hash and see how many seconds in take. I bet this will not take a long time. Modern CPU has SHA instruction set, its super fast anyways"

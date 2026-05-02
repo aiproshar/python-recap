@@ -38,10 +38,10 @@ secured_arafat = PersonImproved("Arafat", 26, "AX79DKE41")
 try:
     print("Trying to print secured arafat's social number")
     print(
-        f"{secured_arafat.__social_security_number}"
-    )  # Runtime Error: AttributeError: 'PersonImproved' object has no attribute '__social_security_number'
+        f"{secured_arafat.__social_security_number}"  # Raises: AttributeError: 'PersonImproved' object has no attribute '__social_security_number'
+    )
 except AttributeError as e:
-    print("Caught Exception" + e.__str__())
+    print(f"Caught Attribute Exception: {e}")
 
 
 """

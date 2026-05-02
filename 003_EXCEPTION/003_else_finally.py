@@ -13,7 +13,7 @@ except FileNotFoundError as e:
 # There can be case where we will have uncaught exception, not being caught by any previous except clause
 else:
     # Else block runs if there is no caught/uncaught exception (important: we may still have uncaught exception)
-    # We
+    # We can use broader Exception clause if we want to caught exception any means
     print(f"File {file.name} was opened")
     print(f"Content of file {file.name} is: {file.read()}")
     file.close()

@@ -17,7 +17,7 @@ class Point2D:  # Defining A class blueprint, naming convention: MyPoint (no und
 
     """
 	Python does not support method overloading, so there cannot be another
-	__init__(self): with no zero params (or one because self is always there)
+	__init__(self): with zero params (or one because self is always there)
 	The recommended way is to use @classmethod. More on next file
 	"""
 
@@ -30,7 +30,6 @@ class Point2D:  # Defining A class blueprint, naming convention: MyPoint (no und
 
 
 def main():
-
     example_point = Point2D(100, 100)
     example_point.print()
     print(f"Value of example point: {example_point}")
@@ -49,5 +48,4 @@ def main():
     print(f"Radius of example point: {example_point.radius()}")
 
 
-if __name__ == "__main__":
-    main()
+main()

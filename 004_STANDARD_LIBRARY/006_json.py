@@ -107,7 +107,7 @@ print(names)
 
 """
 
-for more nested example, it will be like company["teams"]["HR']["head_count"]
+for more nested example, it will be like company["teams"]["HR"]["head_count"]
 example JSON
 {
   "name": "Tech Innovations Inc.",

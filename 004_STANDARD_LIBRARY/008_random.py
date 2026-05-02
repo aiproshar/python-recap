@@ -26,10 +26,11 @@ print(random.choices("abcdefghijklmonopqrstuvwxyz1234567890", k=8))
 # let's generate a real world password generator, with upper lower numeric and special char
 char_set = string.ascii_letters + string.digits + string.punctuation
 suggested_password = random.choices(char_set, k=12)
+# standard way to convert any iterable to string
 suggested_password = "".join(suggested_password)
 print(f"suggested strong password is: {suggested_password}")
 
 # Random shuffle, change order of items
 nums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-random.shuffle(nums)  # in place shuffle, only mutable DS works
+random.shuffle(nums)  # in place shuffle, only mutable data structure works
 print(nums)

@@ -27,40 +27,43 @@ else:
 """
 Types of argument
 ------ Positional Argument ---------
+Positional arguments are required, if you dont provide positional argument, ka boom
+For example cpy, mv, rm command, the file name must be supplied
 python script.py hello world
                  ↑     ↑
               arg 1   arg 2
 
 
 
------------ short flags/options --------------
+----------- optional argument: short flags/options --------------
 
 Part of original unix system
 single dash single letter, example: -v -vv -x
 python script.py -v -o output.txt -n 5
-Some are just flags, some are options. so shorts can be two types: flags and options (flags wih values)
-options that take values always space separated
+Some are just flags (boolean, present means true, not present means false), some are options. so shorts can be two types: boolean and options (flags wih values)
+short flags that take values always space separated
 We can combine two three flags. For example: python3 script.py -x -c -f as python3 script.py -xcf
 -xcf will be broken down to -x -c -f
-anti-pattern: grep -n=5 (don't use equal on short options as separator, always space for short forms)
+anti-pattern: grep -n=5 (don't use equal on short options as separator, always space for short flags)
 
 while combine two three flags, last value can be options
 python3 script.py -vfo file.txt
-#                 ││└─ needs value → grabs "file.txt"
-#                 │└── flag ✓
-#                 └─── flag ✓
+#                 ││└─ options flag needs value → grabs "file.txt"
+#                 │└── boolean flag ✓
+#                 └─── boolean flag ✓
 this works because the command line argument will be broken down to "python3 script.py -v -f -o file.txt"
 
 
------------- long flags/options ----------------
+------------ optional argument: long flags/options ----------------
 
 Double dash, full word. More readable, self documenting
 It was not part of original unix, brought by GNU extension
-can be both flag and options. Options can be defined as two ways, space separated and using equal(=)
+can be both boolean flag and options flag. Options can be defined as two ways, space separated and using equal(=)
 examples:
-        python3 script.py --output=a.txt
-        python3 script.py --output a.txt
-        python3 script.py --verbose --serialize --output=a.txt
+        python3 script.py --verbose        #boolean
+        python3 script.py --output=a.txt   #options, separated by '='
+        python3 script.py --output a.txt   #options, separated by ' '
+        python3 script.py --verbose --serialize --output=a.txt #2 two boolean flags and one options
                                                
                                                
 But be aware, system.argv will see two args using space separation, one using "="
@@ -84,11 +87,9 @@ Short options use a space: -o value
 Long options can use either: --output value or --output=value
 = is never used with short options in standard tools
 
-"""
 
+HOW WE PARSE ALL THESE COMPLEX ARGS TYPES ? USING sys.argv SEEMS A NIGHTMARE
 
-"""
----------------------------------  Argument Parsing  ----------------------------------
-import argparse -> the standard python argument parsing tool
-For anything beyond one or two simple values, argparse is the way to go. It handles parsing, validation, help text, and error messages
+......NEXT FILE PLEASE
+
 """

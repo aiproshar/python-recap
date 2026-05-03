@@ -1,6 +1,9 @@
 name: Run All Scripts
 
-on: [push, pull_request]
+on:
+  push:
+    branches: [main]
+  pull_request:
 
 jobs:
   run-scripts:
@@ -24,9 +27,13 @@ jobs:
           python 004_STANDARD_LIBRARY/009_command_argument.py arg1 arg2 || failed=1
           python 004_STANDARD_LIBRARY/010_argparse.py input.txt data.csv -C -o result.txt || failed=1
 
+          # --- Scripts designed to crash (demonstrating uncaught exceptions) ---
+          python 003_EXCEPTION/003_else_finally.py || true
+
           # --- All other scripts (auto-discovered, excluding handled ones and WIP) ---
           EXCLUDE="003_EXCEPTION/001_basic_exception.py
           003_EXCEPTION/002_exception_types.py
+          003_EXCEPTION/003_else_finally.py
           004_STANDARD_LIBRARY/007_time_date.py
           004_STANDARD_LIBRARY/009_command_argument.py
           004_STANDARD_LIBRARY/010_argparse.py

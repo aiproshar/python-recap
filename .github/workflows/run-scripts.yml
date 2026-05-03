@@ -1,0 +1,44 @@
+name: Run All Scripts
+
+on: [push, pull_request]
+
+jobs:
+  run-scripts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+          allow-prereleases: true
+      - name: Run all scripts
+        run: |
+          failed=0
+
+          # --- Scripts needing dummy stdin ---
+          echo -e "25\n25" | python 003_EXCEPTION/001_basic_exception.py || failed=1
+          echo -e "10\n2\n10\n2" | python 003_EXCEPTION/002_exception_types.py || failed=1
+          echo -e "2000\n1\n1" | python 004_STANDARD_LIBRARY/007_time_date.py || failed=1
+
+          # --- Scripts needing CLI args ---
+          python 004_STANDARD_LIBRARY/009_command_argument.py arg1 arg2 || failed=1
+          python 004_STANDARD_LIBRARY/010_argparse.py input.txt data.csv -C -o result.txt || failed=1
+
+          # --- All other scripts (auto-discovered, excluding handled ones and WIP) ---
+          EXCLUDE="003_EXCEPTION/001_basic_exception.py
+          003_EXCEPTION/002_exception_types.py
+          004_STANDARD_LIBRARY/007_time_date.py
+          004_STANDARD_LIBRARY/009_command_argument.py
+          004_STANDARD_LIBRARY/010_argparse.py
+          002_OOP/004_custom_container.py"
+
+          for script in $(find . -name "*.py" -not -path "./.venv/*" | sort); do
+            script="${script#./}"
+            if echo "$EXCLUDE" | grep -qx "$script"; then
+              continue
+            fi
+            echo "Running: $script"
+            python "$script" || { echo "FAILED: $script"; failed=1; }
+          done
+
+          exit $failed

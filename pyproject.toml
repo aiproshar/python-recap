@@ -2,6 +2,6 @@
 name = "python-recap"
 version = "0.1.0"
 description = "Basic Python Learning"
-requires-python = ">=3.14"
+requires-python = ">=3.12"
 dependencies = []
 indent-style = "space"

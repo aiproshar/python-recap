@@ -44,7 +44,7 @@ fruit_stock = {"apple": 10, "orange": 23, "melon": 70, "mango": 22, "coconut": 1
 for fruit in fruit_stock:
     print(fruit)
 
-# .items() returns (key, value) tuples — we unpack them
+# .items() returns (key, value) tuples, we unpack them
 for key, val in fruit_stock.items():
     print(f"Key: {key} Value: {val}")
 
@@ -52,6 +52,14 @@ for key, val in fruit_stock.items():
 # item here is itself a (key, val) tuple from .items()
 for idx, (key, val) in enumerate(fruit_stock.items()):
     print(idx, key, val)
+
+# sorting items in a dict, required for example top K feq element
+fruits_count = {"apple": 10, "banana": 20, "orange": 27, "mango": 25, "guava": 20}
+sorted_fruit = sorted(fruits_count.items(), key=lambda x: x[1], reverse=True)
+print(sorted_fruit)  # prints a list of tuples
+# top K frequent elements needs this
+# We want to sort using values, not keys. That's why we must iterate over items
+
 
 # ===========================================================================
 # DEFAULT DICT — returns default value instead of KeyError

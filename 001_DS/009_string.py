@@ -9,7 +9,7 @@ Immutable sequence of character, constant time random element access
 Every state change in a string generates a new string
 """
 
-from os import supports_effective_ids
+from collections import Counter
 
 s = "arafat khan"
 print(f'string: "{s}" Len: {len(s)} id: {id(s)}')  #
@@ -38,7 +38,7 @@ print(
     f"Invalid Slice s[1000:2000] and no error: {s[1000:2000]}"
 )  # slice is forgiving everywhere
 s = "1234567"
-for char in s:  # niteration
+for char in s:  # n iteration
     print(char)
 print("\n")
 for char in s[::-1]:  # pythonic reverse iteration
@@ -49,9 +49,11 @@ print(f"1234567 -> 5 is replaced by x: {s_mod}")
 
 first = "Arafat"
 last = "Khan"
-name = first + " " + last  # extreamly expensive, builds over each time
+name = first + " " + last  # extremely expensive, builds over each time
 print(f"concat name: {name}")
-
+# Reversing a string, its always new string, we cannot do inplace due to immutable nature
+name_rev = name[::-1]  # create a new one
+name = name[::-1]  # overright the actual string, creates a new ref
 """
 Building strings with += in a loop is O(n²). Every += creates a new string,
 copies everything over. For N characters that's N + (N-1) + (N-2)... = O(n²)
@@ -207,3 +209,43 @@ its okay \r\n now that
 its okay \r\r\r nnn
 """
 print(multiline_text.splitlines())  # also prints empty string
+
+
+"""
+----------------------- JOIN: The inverse of split
+separator.join(iterable) ->separator can be a empty string, so the elements in the string just glues
+All element in the iterable must be string, or we get typeerror
+separator is barely used, we will see
+"""
+name_list = ["a", "r", "a", "f", "", "a", "", "", "t"]
+name = "".join(name_list)
+print(
+    f"Join from {name_list} is: {name}"
+)  # empty strings are gone because there is no separator
+name_dash = "-".join(name_list)
+print(
+    f"Dash Join from {name_list} is: {name_dash}"
+)  # you can see the ghost strings as a-r-a-f-a--t
+# You can also run list comprehension to remove empty strings
+name_dash_purified = "-".join(x for x in name_list if x)
+print(f"Dash Join from {name_list} and purified: {name_dash_purified}")
+
+
+"""
+------------- Counter------------
+Same as other, works on any iterable where each element is hashable
+Be careful of using counter on bool, and float, as although they immutable, no consistent
+"""
+
+
+c1 = Counter("arafat is writing this doc")
+print(f"Most 3 common char of 'arafat is writing this doc': {c1.most_common(3)}")
+
+# There are some advanced counter operations, which are in a dedicated counter section
+
+"""'------ Reverse word in a string
+Split, do operation on each word and join. That's the Standard Procedure
+"""
+sentence = "  the sky  is blue  "
+rev_words = " ".join(sentence.split()[::-1])
+print(rev_words)

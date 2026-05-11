@@ -249,3 +249,6 @@ Split, do operation on each word and join. That's the Standard Procedure
 sentence = "  the sky  is blue  "
 rev_words = " ".join(sentence.split()[::-1])
 print(rev_words)
+
+x = [1, 2, 3, 4, 1, "A", "a", "A"]
+print(Counter(x).most_common(1)[0][1])

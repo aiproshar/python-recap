@@ -4,8 +4,8 @@ A hands-on reference and learning repo covering core Python concepts — data st
 
 **Python:** 3.12+  **Dependencies:** none (stdlib only)
 
-> **README last synced at commit** [`63bcf8d`](https://github.com/aiproshar/python-recap/commit/63bcf8dfc5d93b0b891b12c01603d4fffdc79d86) _(2026-05-16)_
-> Run `git log 63bcf8d..HEAD` to see what's landed since this README was updated.
+> **README last synced at commit** [`e05eb3d`](https://github.com/aiproshar/python-recap/commit/e05eb3d7e2f5cc50ead212b573ac3a1b81b6ee25) _(2026-05-16)_
+> Run `git log e05eb3d..HEAD` to see what's landed since this README was updated.
 
 ---
 
@@ -86,6 +86,7 @@ Short notes on things that have tripped me up — captured for future reference.
 | [003_range_index.py](./999_EXTRAS/003_range_index.py) | `range(i, i+k)` element counting in sliding windows |
 | [004_is_vs_eq.py](./999_EXTRAS/004_is_vs_eq.py) | `is` vs `==` — identity vs equality |
 | [005_floor_ceil_trunc.py](./999_EXTRAS/005_floor_ceil_trunc.py) | `floor`, `ceil`, `trunc`, `//` — rounding direction with negatives |
+| [006_dispatch_dict.py](./999_EXTRAS/006_dispatch_dict.py) | Dispatch dict pattern (if/elif → dict of callables), `operator` module, RPN evaluator |
 
 ---
 
@@ -108,4 +109,4 @@ uv run 002_OOP/009_polymorphism.py
 | Exception Handling | 4 | Complete |
 | Standard Library | 11 | Complete |
 | Modules | — | Planned |
-| Extras | 5 | Ongoing — grows as new gotchas come up |
+| Extras | 6 | Ongoing — grows as new gotchas come up |

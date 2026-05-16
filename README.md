@@ -4,6 +4,9 @@ A hands-on reference and learning repo covering core Python concepts — data st
 
 **Python:** 3.12+  **Dependencies:** none (stdlib only)
 
+> **README last synced at commit** [`63bcf8d`](https://github.com/aiproshar/python-recap/commit/63bcf8dfc5d93b0b891b12c01603d4fffdc79d86) _(2026-05-16)_
+> Run `git log 63bcf8d..HEAD` to see what's landed since this README was updated.
+
 ---
 
 ## Sections
@@ -12,6 +15,7 @@ A hands-on reference and learning repo covering core Python concepts — data st
 
 | File | Topic |
 |------|-------|
+| [000_prologue.py](./001_DS/000_prologue.py) | Iterable/sequence/mapping/set hierarchy overview |
 | [001_list.py](./001_DS/001_list.py) | List basics — creation, indexing, slicing, type hints |
 | [002_list_more.py](./001_DS/002_list_more.py) | Unpacking, enumeration, sort, membership |
 | [003_lambda_sort.py](./001_DS/003_lambda_sort.py) | Lambda expressions, multi-key sorting |
@@ -19,6 +23,9 @@ A hands-on reference and learning repo covering core Python concepts — data st
 | [005_deque.py](./001_DS/005_deque.py) | `collections.deque` — O(1) append/pop on both ends |
 | [006_tuple.py](./001_DS/006_tuple.py) | Tuples, named tuples, hashability, unpacking |
 | [007_set_dict.py](./001_DS/007_set_dict.py) | Dicts, `defaultdict`, sets, set operations |
+| [008_heap.py](./001_DS/008_heap.py) | `heapq` — min-heap operations, max-heap via negation |
+| [009_string.py](./001_DS/009_string.py) | String immutability, common methods, interview prep |
+| [010_counter.py](./001_DS/010_counter.py) | `collections.Counter` *(WIP)* |
 
 ---
 
@@ -68,6 +75,20 @@ A hands-on reference and learning repo covering core Python concepts — data st
 
 ---
 
+### [999_EXTRAS](./999_EXTRAS/) — Extras & Gotchas
+
+Short notes on things that have tripped me up — captured for future reference.
+
+| File | Topic |
+|------|-------|
+| [001_inv_range.py](./999_EXTRAS/001_inv_range.py) | Iterating a list in reverse with `range(n-2, -1, -1)` |
+| [002_infinity.py](./999_EXTRAS/002_infinity.py) | `float('inf')` / `float('-inf')` as min/max sentinels |
+| [003_range_index.py](./999_EXTRAS/003_range_index.py) | `range(i, i+k)` element counting in sliding windows |
+| [004_is_vs_eq.py](./999_EXTRAS/004_is_vs_eq.py) | `is` vs `==` — identity vs equality |
+| [005_floor_ceil_trunc.py](./999_EXTRAS/005_floor_ceil_trunc.py) | `floor`, `ceil`, `trunc`, `//` — rounding direction with negatives |
+
+---
+
 ## Running examples
 
 ```bash
@@ -82,8 +103,9 @@ uv run 002_OOP/009_polymorphism.py
 
 | Section | Files | Status |
 |---------|-------|--------|
-| Data Structures | 7 | Complete |
+| Data Structures | 11 | `010_counter.py` WIP |
 | OOP | 10 | `004_custom_container.py` WIP |
 | Exception Handling | 4 | Complete |
 | Standard Library | 11 | Complete |
 | Modules | — | Planned |
+| Extras | 5 | Ongoing — grows as new gotchas come up |

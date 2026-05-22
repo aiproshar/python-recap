@@ -197,6 +197,84 @@ binary_search_right_bound(nums, 5)  # last 5
 
 
 =============================================================================
+         WHEN THE TARGET IS MISSING — CONVERGENCE DIRECTION
+=============================================================================
+
+  nums = [1, 2, 3, 4, 5, 6, 8, 9, 10, 11],  target = 7
+  index:  0  1  2  3  4  5  6  7   8   9
+
+  7 is NOT in the array. There's a gap between 6 (index 5) and 8 (index 6).
+
+  Template 1 (exact):       returns -1  (not found, as expected)
+
+  ─────────────────────────────────────────────────────────────────────
+
+  Template 2 (left bound):  converges RIGHT → LEFT, lands on 8 (index 6)
+
+    WHY: hi keeps getting PULLED LEFT toward the answer.
+         When condition is met (nums[mid] >= 7), we do hi = mid.
+         hi drags the search window leftward until it meets lo.
+
+                       target = 7
+                           ↓
+    [1, 2, 3, 4, 5, 6, 8, 9, 10, 11]
+                        ↑
+     lo ──────────────→ ←──────── hi
+         lo moves right    hi moves left
+         (skipping bad)    (keeping candidates)
+
+                        ↕
+                     CONVERGE → index 6, element 8
+                     (first element >= 7)
+
+    hi is the "careful" pointer — it holds onto candidates.
+    lo is the "aggressive" pointer — it skips past failures.
+    They meet at the LEFTMOST valid position.
+
+  ─────────────────────────────────────────────────────────────────────
+
+  Template 3 (right bound): converges LEFT → RIGHT, lands on 6 (index 5)
+
+    WHY: lo keeps getting PUSHED RIGHT toward the answer.
+         When condition is met (nums[mid] <= 7), we do lo = mid.
+         lo drags the search window rightward until it meets hi.
+
+                       target = 7
+                           ↓
+    [1, 2, 3, 4, 5, 6, 8, 9, 10, 11]
+                     ↑
+     lo ────────→ ←──────────────── hi
+     lo moves right    hi moves left
+     (keeping candidates) (skipping bad)
+
+                     ↕
+                  CONVERGE → index 5, element 6
+                  (last element <= 7)
+
+    lo is the "careful" pointer — it holds onto candidates.
+    hi is the "aggressive" pointer — it skips past failures.
+    They meet at the RIGHTMOST valid position.
+
+  ─────────────────────────────────────────────────────────────────────
+
+  KEY INSIGHT: The "careful" pointer determines where you land.
+
+    Left bound:   hi = mid  (careful hi) → converges from right → lands LEFT of gap
+    Right bound:  lo = mid  (careful lo) → converges from left  → lands RIGHT of gap
+
+    Think of it as: the careful pointer is the one that says
+    "this MIGHT be my answer, I'll hold onto it" — and that's
+    the side you end up on.
+
+  Neither template tells you 7 is missing — you must check nums[lo]
+  afterward if you need an exact match.
+
+  PRACTICAL USES WHEN TARGET IS MISSING:
+    - Left bound  → "where would 7 be inserted?" (bisect_left)
+    - Right bound → "what's the last thing before 7?" (predecessor query)
+
+
+=============================================================================
                          CHEAT SHEET SUMMARY
 =============================================================================
 
